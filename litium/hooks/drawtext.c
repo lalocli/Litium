@@ -31,6 +31,7 @@ int64_t litium_hook_drawtext(const char *format, float x, float y, float size, u
 {
     va_list va;
     char buf[10000];
+    int64_t ret;
 
     if (LITIUM_RETURNADDRESS() == LITIUM_PLATFORMADDRESS(0x9658E, 0x15759D))
         return (litium_api_drawtextc("Generating...", x, y, size, 0xFFFF, LITIUM_API_TEXT_ALIGNCENTER));
@@ -47,7 +48,7 @@ int64_t litium_hook_drawtext(const char *format, float x, float y, float size, u
     }
 
     subhook_remove(litium_hook_drawtext_k);
-    int64_t ret = cs_drawtext(buf, x, y, size, flags | NOFORMAT, red, green, blue, alpha);
+    ret = cs_drawtext(buf, x, y, size, flags | NOFORMAT, red, green, blue, alpha);
     subhook_install(litium_hook_drawtext_k);
 
     return (ret);

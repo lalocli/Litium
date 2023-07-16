@@ -37,13 +37,14 @@ bool litium_setup(uintptr_t baseptr)
 #if _WIN32
 BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, LPVOID reserved)
 {
+    char buf[256];
+
     switch (reason)
     {
     case DLL_PROCESS_ATTACH:
     {
         if (!litium_setup((uintptr_t)GetModuleHandle(NULL)))
         {
-            char buf[256];
             sprintf(buf, "Could not setup Litium.\nAre you sure you're running %d%c?\n", LITIUM_GAMEVERSION, LITIUM_GAMEVERSIONPATCH);
             MessageBox(NULL, buf, "Error", MB_OK | MB_ICONERROR);
             abort();
