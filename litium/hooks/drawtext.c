@@ -34,9 +34,9 @@ int64_t litium_hook_drawtext(const char *format, float x, float y, float size, u
     int64_t ret;
 
     if (LITIUM_RETURNADDRESS() == LITIUM_PLATFORMADDRESS(0x9658E, 0x15759D))
-        return (litium_api_drawtextc("Generating...", x, y, size, 0xFFFF, LITIUM_API_TEXT_ALIGNCENTER));
+        return (litium_api_drawtextc("Generating...", x, y, size, 1.0f, 0x0FFF, LITIUM_API_TEXT_ALIGNCENTER));
     if (LITIUM_RETURNADDRESS() == LITIUM_PLATFORMADDRESS(0x966B4, 0x157629))
-        return (litium_api_drawtextc("Connecting...", x, y, size, 0xFFFF, LITIUM_API_TEXT_ALIGNCENTER));
+        return (litium_api_drawtextc("Connecting...", x, y, size, 1.0f, 0x0FFF, LITIUM_API_TEXT_ALIGNCENTER));
 
     // This is the original implementation for now, UNSAFE
     if ((flags & NOFORMAT) != 0)

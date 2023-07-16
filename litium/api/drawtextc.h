@@ -33,7 +33,7 @@ extern "C"
 #define LITIUM_API_TEXT_SHADOWS 0x20
 #endif
 
-int64_t litium_api_drawtextc(const char *text, float x, float y, float size, unsigned short color, unsigned int flags);
+int64_t litium_api_drawtextc(const char *text, float x, float y, float size, float alpha, uint16_t color, unsigned int flags);
 
 #if __cplusplus
 }
