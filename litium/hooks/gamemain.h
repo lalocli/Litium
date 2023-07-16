@@ -17,5 +17,9 @@
 
 #pragma once
 
+#include <stdint.h>
+
+#include "../../subhook/subhook.h"
+
 extern subhook_t litium_hook_gamemain_k;
 void litium_hook_gamemain(void);

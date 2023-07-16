@@ -56,7 +56,7 @@ BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, LPVOID reserved)
     return (TRUE);
 }
 #elif __linux__
-__attribute__((constructor)) void entry()
+__attribute__((constructor)) void entry(void)
 {
     FILE *mapfp;
     char *buf;

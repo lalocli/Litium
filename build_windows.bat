@@ -1,5 +1,6 @@
-cl /c /O2 /MT litium/addresses.c litium/hooks.c litium/litium.c subhook/subhook.c -DSUBHOOK_STATIC
-cl /c /std:c++20 /MT litium/api/*.cpp
+cl /c /MT subhook/subhook.c -DSUBHOOK_STATIC
+cl /c /std:c++20 /MT litium/api/*.cpp -DSUBHOOK_STATIC
+cl /c /O2 /MT litium/addresses.c litium/hooks.c litium/litium.c -DSUBHOOK_STATIC
 link /DLL /SUBSYSTEM:WINDOWS /DEBUG:NONE /OUT:litium.dll *.obj Kernel32.lib User32.lib
 @del *.obj
 

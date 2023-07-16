@@ -15,9 +15,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#include "gamemain.h"
+#include "drawtext.h"
 
 #include <stdarg.h>
+#include <stdint.h>
 #include <string.h>
 
 #include "../addresses.h"

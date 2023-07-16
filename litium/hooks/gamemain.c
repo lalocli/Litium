@@ -17,6 +17,9 @@
 
 #include "gamemain.h"
 
+#include <stdint.h>
+
+#include "../../subhook/subhook.h"
 #include "../addresses.h"
 
 subhook_t litium_hook_gamemain_k;

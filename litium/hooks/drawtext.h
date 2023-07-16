@@ -17,5 +17,9 @@
 
 #pragma once
 
+#include <stdint.h>
+
+#include "../../subhook/subhook.h"
+
 extern subhook_t litium_hook_drawtext_k;
 int64_t litium_hook_drawtext(const char *format, float x, float y, float size, unsigned int flags, float red, float green, float blue, float alpha, ...);
