@@ -17,12 +17,12 @@
 
 #pragma once
 
+#include <stdint.h>
+
 #if __cplusplus
 extern "C"
 {
 #endif
-
-#include <stdint.h>
 
 #ifndef LITIUM_API_TEXT_ALIGNRIGHT
 #define LITIUM_API_TEXT_ALIGNRIGHT 0x0

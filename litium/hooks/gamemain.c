@@ -17,8 +17,6 @@
 
 #include "gamemain.h"
 
-#include <stdint.h>
-
 #include "../../subhook/subhook.h"
 #include "../addresses.h"
 

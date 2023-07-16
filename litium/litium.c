@@ -28,6 +28,7 @@
 #include "addresses.h"
 #include "hooks.h"
 #include "litium.h"
+#include "patches.h"
 
 bool litium_setup(uintptr_t baseptr)
 {
@@ -49,6 +50,7 @@ BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, LPVOID reserved)
             MessageBox(NULL, buf, "Error", MB_OK | MB_ICONERROR);
             abort();
         }
+        litium_patch();
         break;
     }
     }
@@ -61,6 +63,7 @@ __attribute__((constructor)) void entry(void)
     FILE *mapfp;
     char *buf;
     size_t bufsz;
+    char c;
     uintptr_t baseptr;
 
     mapfp = fopen("/proc/self/maps", "rb");
@@ -69,19 +72,20 @@ __attribute__((constructor)) void entry(void)
     bufsz = 0;
     while (1)
     {
-        char c = fgetc(mapfp);
+        c = fgetc(mapfp);
         if (c == '-' || c == EOF)
             break;
         buf = realloc(buf, ++bufsz);
         buf[bufsz - 1] = c;
     }
 
-    sscanf(buf, "%p", &baseptr);
+    sscanf(buf, "%p", (void **)&baseptr);
 
     if (!litium_setup(baseptr))
     {
         fprintf(stderr, "Could not setup Litium.\nAre you sure you're running %d%c?\n", LITIUM_GAMEVERSION, LITIUM_GAMEVERSIONPATCH);
         abort();
     }
+    litium_patch();
 }
 #endif

@@ -17,12 +17,12 @@
 
 #include "drawtextc.h"
 
+#include <stdint.h>
+
 #include "drawtext.hpp"
 
 extern "C"
 {
-
-#include <stdint.h>
 
 int64_t litium_api_drawtextc(const char *text, float x, float y, float size, float alpha, uint16_t color, unsigned int flags)
 {
