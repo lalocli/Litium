@@ -31,9 +31,9 @@ std::int64_t litium_api_drawtext(const std::string &text, float x, float y, floa
         safetext.push_back(c != 0 ? c : '?');
 
     float red, green, blue;
-    red = (float)(color & 0x0F00) / 16.0f;
-    green = (float)(color & 0x00F0) / 16.0f;
-    blue = (float)(color & 0x000F) / 16.0f;
+    red = ((float)((color & 0x0F00) >> 8)) / 16.0f;
+    green = ((float)((color & 0x00F0) >> 4)) / 16.0f;
+    blue = ((float)((color & 0x000F))) / 16.0f;
 
     return (cs_drawtext(safetext.c_str(), x, y, size, flags | NOFORMAT, red, green, blue, alpha));
 }
