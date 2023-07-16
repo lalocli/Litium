@@ -39,11 +39,15 @@ extern "C"
 extern uintptr_t litium_baseaddress;
 extern bool litium_isdedicated;
 
-extern int *litium_gameversionptr;
-extern uint8_t *litium_gameversionpatchptr;
+extern int *sr_gameversionptr;
+extern uint8_t *sr_gameversionpatchptr;
+
+extern bool *sr_isingameptr;
+extern int *sr_menuidptr;
 
 extern int64_t (*cs_drawtext)(const char *format, float x, float y, float size, unsigned int flags, float red, float green, float blue, float alpha, ...);
 extern int64_t (*cs_format)(char *result, const char *format, int unk, va_list va);
+extern int (*sr_drawmenu)(int unk);
 extern void (*sr_gamemain)(void);
 
 /* ADDRESSES END */
