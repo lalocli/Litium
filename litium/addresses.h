@@ -17,14 +17,16 @@
 
 #pragma once
 
+#include <stdarg.h>
+#include <stdbool.h>
+#include <stdint.h>
+
+#include "structs/vehicletype.h"
+
 #if __cplusplus
 extern "C"
 {
 #endif
-
-#include <stdarg.h>
-#include <stdbool.h>
-#include <stdint.h>
 
 #if _WIN32
 #define LITIUM_PLATFORMADDRESS(windows, linux) windows
@@ -44,6 +46,8 @@ extern uint8_t *sr_gameversionpatchptr;
 
 extern bool *sr_isingameptr;
 extern int *sr_menuidptr;
+
+extern sr_vehicletype_t *sr_vehicletypes;
 
 extern int64_t (*cs_drawtext)(const char *format, float x, float y, float size, unsigned int flags, float red, float green, float blue, float alpha, ...);
 extern int64_t (*cs_format)(char *result, const char *format, int unk, va_list va);

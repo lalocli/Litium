@@ -21,12 +21,7 @@
 
 #include "drawtext.hpp"
 
-extern "C"
-{
-
-int64_t litium_api_drawtextc(const char *text, float x, float y, float size, float alpha, uint16_t color, unsigned int flags)
+extern "C" int64_t litium_api_drawtextc(const char *text, float x, float y, float size, float alpha, uint16_t color, unsigned int flags)
 {
     return (litium_api_drawtext(text, x, y, size, alpha, color, flags));
-}
-
 }

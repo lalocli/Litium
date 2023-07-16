@@ -17,7 +17,7 @@
 
 #pragma once
 
-#include <cstdint>
+#include <stdint.h>
 #include <string>
 
 #ifndef LITIUM_API_TEXT_ALIGNRIGHT
@@ -33,4 +33,4 @@
  * Draws a text on the screen.
  * Uses a RGB color hex where the lowest place is blue.
 */
-std::int64_t litium_api_drawtext(const std::string &text, float x, float y, float size, float alpha = 1.0f, uint16_t color = 0x0FFF, unsigned int flags = LITIUM_API_TEXT_ALIGNRIGHT);
+int64_t litium_api_drawtext(const std::string &text, float x, float y, float size, float alpha = 1.0f, uint16_t color = 0x0FFF, unsigned int flags = LITIUM_API_TEXT_ALIGNRIGHT);

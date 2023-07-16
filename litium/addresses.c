@@ -35,6 +35,8 @@ uint8_t *sr_gameversionpatchptr;
 bool *sr_isingameptr;
 int *sr_menuidptr;
 
+sr_vehicletype_t *sr_vehicletypes;
+
 int64_t (*cs_drawtext)(const char *format, float x, float y, float size, unsigned int flags, float red, float green, float blue, float alpha, ...);
 int64_t (*cs_format)(char *result, const char *format, int unk, va_list va);
 int (*sr_drawmenu)(int unk);
@@ -55,6 +57,8 @@ label_client: {}
     sr_isingameptr = PTR(baseptr + LITIUM_PLATFORMADDRESS(0x43EBFAA0, 0x1CE18FE0));
     sr_menuidptr = PTR(baseptr + LITIUM_PLATFORMADDRESS(0x43EBFAA4, 0x1CE18FE4));
 
+    sr_vehicletypes = PTR(baseptr + LITIUM_PLATFORMADDRESS(0x52E9A680, 0x38CD0E20));
+
     cs_drawtext = PTR(baseptr + LITIUM_PLATFORMADDRESS(0x6D930, 0x2C62C));
     cs_format = PTR(baseptr + LITIUM_PLATFORMADDRESS(0x6E530, 0x238F5));
     sr_drawmenu = PTR(baseptr + LITIUM_PLATFORMADDRESS(0x72450, 0x30821));
@@ -71,6 +75,8 @@ label_dedicated: {}
 
     sr_isingameptr = PTR(0);
     sr_menuidptr = PTR(0);
+
+    sr_vehicletypes = PTR(baseptr + LITIUM_PLATFORMADDRESS(0xAA152E0, 0x0));
 
     cs_drawtext = PTR(0);
     cs_format = PTR(0);

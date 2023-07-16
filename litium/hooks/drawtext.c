@@ -21,6 +21,7 @@
 #include <stdint.h>
 #include <string.h>
 
+#include "../../subhook/subhook.h"
 #include "../addresses.h"
 #include "../api/drawtextc.h"
 

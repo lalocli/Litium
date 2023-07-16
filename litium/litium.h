@@ -17,6 +17,13 @@
 
 #pragma once
 
+#include <stddef.h>
+#include <stdint.h>
+
+#if __cplusplus
+#include <string>
+#endif
+
 #define LITIUM_VERSION "2023.7.15-0"
 #define LITIUM_GAMEVERSION 38
 #define LITIUM_GAMEVERSIONPATCH 'f'
@@ -26,4 +33,18 @@
 #define LITIUM_INLINE __forceinline
 #elif __linux__
 #define LITIUM_INLINE inline __attribute__((always_inline))
+#endif
+
+#define LITIUM_CAT_HELPER(x, y) x##y
+#define LITIUM_CAT(x, y) LITIUM_CAT_HELPER(x, y)
+#define LITIUM_PAD(n) uint8_t LITIUM_CAT(pad, __LINE__)[n]
+
+#if __cplusplus
+LITIUM_INLINE std::string litium_makesafestr(const std::string &str)
+{
+    std::string safestr;
+    for (char c : str)
+        safestr.push_back(c != 0 ? c : '?');
+    return (safestr);
+}
 #endif

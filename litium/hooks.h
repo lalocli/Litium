@@ -17,13 +17,13 @@
 
 #pragma once
 
+#include <stdbool.h>
+#include <stdint.h>
+
 #if __cplusplus
 extern "C"
 {
 #endif
-
-#include <stdbool.h>
-#include <stdint.h>
 
 bool litium_hook(uintptr_t baseptr);
 

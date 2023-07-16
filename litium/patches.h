@@ -17,4 +17,13 @@
 
 #pragma once
 
+#if __cplusplus
+extern "C"
+{
+#endif
+
 void litium_patch(void);
+
+#if __cplusplus
+}
+#endif
