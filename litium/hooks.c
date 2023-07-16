@@ -17,6 +17,7 @@
 
 #include "hooks.h"
 
+#include <stdbool.h>
 #include <stdint.h>
 
 #include "../subhook/subhook.h"

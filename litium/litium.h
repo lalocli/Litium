@@ -21,3 +21,9 @@
 #define LITIUM_GAMEVERSION 38
 #define LITIUM_GAMEVERSIONPATCH 'f'
 #define LITIUM_GAMEVERSIONPATCH_DEDICATED 'e'
+
+#if _WIN32
+#define LITIUM_INLINE __forceinline
+#elif __linux__
+#define LITIUM_INLINE inline __attribute__((always_inline))
+#endif
