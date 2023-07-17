@@ -51,6 +51,7 @@ int64_t litium_hook_drawtext(const char *format, float x, float y, float size, u
     {
         va_start(va, alpha);
         cs_format(buf, format, 10000, va);
+        va_end(va);
     }
 
     subhook_remove(litium_hook_drawtext_k);

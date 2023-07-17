@@ -26,6 +26,7 @@
 #include "hooks/drawmenu.c"
 #include "hooks/drawtext.c"
 #include "hooks/gamemain.c"
+#include "hooks/printf.c"
 
 #define HOOK(src, dst, k) \
     { \
@@ -42,6 +43,10 @@ bool litium_hook(uintptr_t baseptr)
     HOOK(cs_drawtext, litium_hook_drawtext, litium_hook_drawtext_k);
     HOOK(sr_drawmenu, litium_hook_drawmenu, litium_hook_drawmenu_k);
     HOOK(sr_gamemain, litium_hook_gamemain, litium_hook_gamemain_k);
+    HOOK(sr_printf, litium_hook_printf, litium_hook_printf_k);
+#if __linux__
+    HOOK(sr_puts, litium_hook_puts, litium_hook_puts_k);
+#endif
 
     return (true);
 }

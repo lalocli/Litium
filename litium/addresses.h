@@ -53,6 +53,12 @@ extern int64_t (*cs_drawtext)(const char *format, float x, float y, float size, 
 extern int64_t (*cs_format)(char *result, const char *format, int unk, va_list va);
 extern int (*sr_drawmenu)(int unk);
 extern void (*sr_gamemain)(void);
+#if _WIN32
+extern int (*sr_printf)(const char *format, ...);
+#elif __linux__
+extern int (*sr_printf)(int flag, const char *format, ...);
+extern int (*sr_puts)(const char *str);
+#endif
 
 /* ADDRESSES END */
 
