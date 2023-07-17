@@ -19,7 +19,7 @@
 
 #include "print.hpp"
 
-extern "C" void litium_api_printc(const char *text, const char *addon)
+extern "C" void litium_api_printc(const char *text, const char *addon, const char *decoration)
 {
-    litium_api_print(text, addon);
+    litium_api_print(text, addon, decoration);
 }

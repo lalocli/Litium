@@ -36,15 +36,15 @@ int litium_hook_printf(int flag, const char *format, ...)
     int ret;
 
     if (strcmp(format, "connection successful\n") == 0)
-        format = "Connection successful!\n";
+        format = "<green>Connection successful!\n";
     else if (strcmp(format, "connection failed\n") == 0)
-        format = "Connection failed!\n";
+        format = "<blink><bold><red>Connection failed!\n";
     else if (strcmp(format, "port:%d\n") == 0)
         format = "Port: %u.\n";
     else if (strcmp(format, "socketenabled:%d\n") == 0)
     {
         va_start(va, format);
-        format = va_arg(va, int) ? "Socket status: OK.\n" : "Socket status: ?\n";
+        format = va_arg(va, int) ? "Socket status: <green>OK<reset>.\n" : "Socket status: <red>?\n";
         va_end(va);
     }
 
@@ -53,7 +53,7 @@ int litium_hook_printf(int flag, const char *format, ...)
     va_end(va);
 
     buf[ret - 1] = 0;
-    litium_api_printc(buf, "Sub Rosa");
+    litium_api_printc(buf, "Sub Rosa", "<bold><purple>");
 
     return (ret);
 }

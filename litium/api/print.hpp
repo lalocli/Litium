@@ -19,4 +19,4 @@
 
 #include <string>
 
-void litium_api_print(const std::string &text, const std::string &addon = "");
+void litium_api_print(const std::string &text, const std::string &addon = "", const std::string &decoration = "");

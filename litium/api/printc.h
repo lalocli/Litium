@@ -22,7 +22,7 @@ extern "C"
 {
 #endif
 
-void litium_api_printc(const char *text, const char *addon);
+void litium_api_printc(const char *text, const char *addon, const char *decoration);
 
 #if __cplusplus
 }
